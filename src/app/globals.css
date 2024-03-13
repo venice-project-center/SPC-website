@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    background: linear-gradient(to right, #590f05 , #b95e09);;
+    min-height: 100%;
+    /*
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue,Garamond, sans-serif;
+     */
+    font-family: "Gilroy Light", system-ui;
+}
+
+.pageLayout {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexNavBar {
+    position:fixed;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    top:0;
+    left:0;
+    width:100%;
+    margin-bottom:1%;
+    border-color: white;
+    box-shadow: 0px 1em 1.5em black;
+    background: black;
+    opacity:2;
+    z-index:2;
+}
+.flexNavBar .menuBox {
+    margin:1%;
+}
+
+.flexNavBar .menuBox .menu {
+    font-size:2vw;
+    @apply text-white;
+    /*font-family:"Verdana","Garamond","Times New Roman","Courier New";*/
+}
+
+.flexNavBar .vpcBox {
+    margin:1%;
+}
+
+.flexNavBar .vpcBox .VPC {
+    font-size:1.414vw;
+    color:white;
+    text-align:right;
+    /*font-family:"Verdana","Times New Roman","Garamond","Courier New";*/
+}
+
+.flexNavBar .loginBox {
+    margin: 1%;
+}
+
+.flexNavBar .loginBox .logIn {
+    font-size:1vw;
+    color:white;
+    /*font-family:"Verdana","Times New Roman","Garamond","Courier New";*/
+}
+
+.sidebar {
+    top:0;
+    left: 0;
+    width: 0%;
+    height:0%;
+    visibility:hidden;
+    border: 2px solid #000000;
+
+}
+
+.opensidebar {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: fit-content;
+    width: fit-content;
+    align-items:center;
+    background-color: #131313e4;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.4);
+    transition: all 0.2s ease;
+    z-index: 3;
+}
+
+.sidebar .sidebar-content {
+    display: flex;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 8px;
+}
+
+.closeMenu {
+    left: 0;
+    top: 0;
+    margin:1%;
+    padding:1%;
+    font-size:175%;
+    text:4xl;
+    color:white;
+    text-align:center;
+    border-radius: 5px;
+    /*font-family:"Verdana","Garamond","Times New Roman","Courier New";*/
+}
+
+.closeMenu:hover {
+    background-color:#6F6F6F;
+    cursor: pointer;
+}
+
+.lists {
+    width:20%;
+}
+
+.list .menuLink {
+    margin: 5% 1%;
+    display:flex;
+    font-weight:400;
+    font-size: 1vw;
+    width:100%;
+    padding: 2% 3%;
+    align-items:center;
+    background:black;
+    border-radius:5px;
+    color: white;
+    /*font-family:"Verdana","Garamond","Times New Roman","Courier New";*/
+    transition: background-color 0.3s ease-out;
+}
+
+.menuLink:hover {
+    background-color:#6F6F6F;
+    cursor: pointer;
+}
+
+.sidebar-content .sidebarNavlist {
+    position:absolute;
+    top: 15%;
+    left: 25%;
+}
+
+.pageContent {
+    position:absolute;
+    margin:2px;
+    left: 0;
+    top: 15%;
+    z-index:0;
+}
+.projectPage {
+    color: white;
+}
+
+.footer {
+    background-color: black;
+    height:120px;
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer .addressSection {
+    height:10vh;
+    width:25%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.footer .addressSection .sectionTitle {
+    font-size:1.8vw;
+    margin:0.2vw 0.5vw 0.4vw;
+    color:white;
+    font-weight: bold;
+}
+
+.footer .addressSection .address {
+    font-size:1vw;
+    margin:0.2vw 0.5vw 0.4vw;
+    color:white;
+}
+
+.footer .addressSection .streetView {
+    font-size:1vw;
+    margin:0.2vw 0.5vw 0.4vw;
+    color:black;
+}
+
+.footer .studentSection {
+    height:10vh;
+    width:25%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer .studentSection .sectionTitle {
+    font-size:1.7vw;
+    margin:2%;
+    color:white;
+    font-weight: bold;
+}
+
+.footer .studentSection .program{
+    font-size:1vw;
+    margin:1%;
+    color:white;
+}
+
+.footer .studentSection .team {
+    font-size:1vw;
+    margin:1%;
+    color:white;
+}
+
+.footer .wpiSection {
+    height:10vh;
+    width:25%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer .wpiSection .sectionTitle {
+    font-size:1.7vw;
+    margin:2%;
+    color:white;
+    font-weight: bold;
+}
+
+.footer .wpiSection .wpi {
+    font-size:1vw;
+    margin:1%;
+    color:white;
+}
+
+.footer .wpiSection .wpiGlobal {
+    font-size:1vw;
+    margin:1%;
+    color:white;
+}
+

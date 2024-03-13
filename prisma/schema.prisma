@@ -1,0 +1,150 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Project {
+  id          String          @id @unique @default(uuid())
+  title       String          @db.Text
+  description String          @db.Text
+  tags        tagsOnProject[]
+  img         String?
+  type        PROJECT_TYPE
+  term        String?         @db.Char(1)
+  year        Int
+  dataurls    Dataurl[]
+  iqp_team    IqpTeam?
+}
+
+model Dataurl {
+  id        String       @id @unique @default(uuid())
+  projectId String
+  url       String
+  text      String
+  type      DATAURL_TYPE
+  Project   Project      @relation(fields: [projectId], references: [id])
+}
+
+model IqpTeam {
+  id        Int         @id @unique @default(autoincrement())
+  team      IqpEntity[]
+  projectId String      @unique
+  project   Project     @relation(fields: [projectId], references: [id])
+}
+
+model IqpEntity {
+  id     String          @id @unique @default(uuid())
+  name   String
+  teamId Int
+  type   IPQ_ENTITY_TYPE
+  team   IqpTeam         @relation(fields: [teamId], references: [id])
+}
+
+model validEmails {
+  id    String @id @unique @default(uuid())
+  email String
+}
+
+model Maintainer {
+  id       String @id @unique @default(uuid())
+  username String
+  password String
+}
+
+model AutoSlideshow {
+  id               Int       @id @unique @default(autoincrement())
+  backgroundColors color[]
+  pictureCaptions  caption[]
+  slideDelay       Float
+  pictures         picture[]
+  links            link[]
+  picWidth         Int
+  picHeight        Int
+}
+
+model color {
+  id          String        @unique @default(uuid())
+  color       String
+  SlideShowId Int
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+}
+
+model caption {
+  id          String        @unique @default(uuid())
+  caption     String
+  SlideShowId Int
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+}
+
+model picture {
+  id          String        @unique @default(uuid())
+  url         String
+  SlideShowId Int
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+}
+
+model link {
+  id          String        @unique @default(uuid())
+  url         String
+  SlideShowId Int
+  slideShow   AutoSlideshow @relation(fields: [SlideShowId], references: [id])
+}
+
+model tagsOnProject {
+  projectId  String
+  name       String
+  tag        Tag      @relation(fields: [name], references: [name], onDelete: Cascade)
+  assignedAt DateTime @default(now())
+  Project    Project  @relation(fields: [projectId], references: [id])
+
+  @@id([projectId, name])
+}
+
+model Tag {
+  name          String          @id @unique
+  tagsOnProject tagsOnProject[]
+}
+
+enum DATAURL_TYPE {
+  DOWNLOAD
+  EMBED
+  LINK
+}
+
+enum IPQ_ENTITY_TYPE {
+  STUDENT
+  SPONSOR
+  ADVISOR
+}
+
+enum PROJECT_TYPE {
+  IQP
+  DATA
+  APP
+  PUBLICATION
+  IMPACT
+}
+
+model OpenDataSection {
+  id                Int    @id @unique @default(autoincrement())
+  spcStatement      String
+  openDataParagraph String
+  openDataPic       String
+}
+
+// TODO add this for a Project card
+// model ProjectCard {
+//   id        String       @id @unique @default(uuid())
+//   title     String
+//   pictureUrl String
+//   caption   String
+//   type      PROJECT_TYPE
+//   project   Project      @relation(fields: [projectId], references: [id])
+//   projectId String
+// }
