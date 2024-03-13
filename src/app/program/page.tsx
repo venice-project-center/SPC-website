@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Page() {
 
-    let headingTitle = "VENICE PROJECT CENTER\nTEAM PROGRAM";
+    let headingTitle = "SANTAFE PROJECT CENTER\nTEAM PROGRAM";
     let infoLabels = ["Program Term : ",
     "Director : ",
     "Housing : ",
@@ -36,7 +36,7 @@ export default function Page() {
             <div className = {"heading"}>
                 <Image src={programHeader} alt={"an image of a student working on a project"}></Image>
                 <div className={"overlay"}></div>
-                <h1>VENICE PROJECT CENTER{"\n"}
+                <h1>SANTAFE PROJECT CENTER{"\n"}
                     TEAM PROGRAM</h1>
             </div>
             <div className = {"info1"}>
