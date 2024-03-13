@@ -9,10 +9,9 @@ interface StudentProjectCardData {
     projectCaption:string
 }
 
-export function newSudentProjectData(color:string, caption:string,picture:string,link:string) {
+export function newSudentProjectData( caption:string,picture:string,link:string) {
     let data:StudentProjectCardData = {} as StudentProjectCardData;
     data.projectCaption = caption;
-    data.backgroundColor = color;
     data.projectLink = link;
     data.projectPicture = picture;
     return data;
@@ -20,12 +19,11 @@ export function newSudentProjectData(color:string, caption:string,picture:string
 
 export function StudentProjectCard(props:{data:StudentProjectCardData}) {
     return(
-        <div className = "sampleProject"
-             style = {{backgroundColor:props.data.backgroundColor}}>
+        <div className = "sampleProject">
             <Link href = {props.data.projectLink}>
                 <figure className = {"picContainer"}>
-                    <Image src={props.data.projectPicture} width={500} height = {"500"} alt={"iqp image"} className={"studentProjectPic"}></Image>
-                    <figcaption className="studentProjectTitle">{props.data.projectCaption}</figcaption>
+                    <Image src={props.data.projectPicture} width={500} height = {500} alt={"iqp image"} className={"studentProjectPic"}></Image>
+                    <figcaption style={{"bottom": 0, "transform": "none"}} className="studentProjectTitle">{props.data.projectCaption}</figcaption>
                 </figure>
             </Link>
         </div>

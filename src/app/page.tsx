@@ -26,9 +26,6 @@ export default function Home() {
         <div className = {"homePage flex flex-col"}>
             <HomePageLanding></HomePageLanding>
             <StudentProjectsSection></StudentProjectsSection>
-            <PublicationSection></PublicationSection>
-            <ApplicationSection></ApplicationSection>
-            <ImpactsSection></ImpactsSection>
         </div>
 
     );

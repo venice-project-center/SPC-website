@@ -7,13 +7,18 @@ body {
     padding: 0;
     margin: 0;
     line-height: 1.6;
-    background: linear-gradient(to right, #590f05 , #b95e09);;
+    height: 100%;
+    background: linear-gradient(to right, #b95e09 , #5fa19c,#b95e09);
     min-height: 100%;
     /*
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue,Garamond, sans-serif;
      */
     font-family: "Gilroy Light", system-ui;
+}
+
+a:hover {
+    color: turquoise;
 }
 
 .pageLayout {

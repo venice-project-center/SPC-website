@@ -20,14 +20,10 @@ export default function Page() {
                         </div>
                         <div className={"static"}>
                             <p className={"my-4"}>
-                                Every year since 1988, WPI students have carried out relevant projects in order to solve issues and problems of the city of Venice with a scientific and technological approach.
+                                Since its founding in 2009, the Santa Fe Project Center center has collaborated with a variety of institutions, non-profits, government agencies and native american communities to address a number of issues impacting the lives of the citizens of Santa Fe and all of New Mexico.
+                                The projects with native communities often entail the application of science and technology in the context of traditional indigenous customs.
                             </p>
-                            <p className={"my-4"}>
-                                In 30 years of activity, the projects have covered a wide range of topics, from conservation of cultural heritage to in-depth analysis of the hydrogeological data of the lagoon.
-                            </p>
-                            <p className={"my-4"}>
-                                Many of these projects have inspired and started the creation of Venetian start-ups.
-                            </p>
+
                         </div>
                         <FilterByTagMainPage onCheckboxChange={handleCheckboxChange}/>
                     </div>
