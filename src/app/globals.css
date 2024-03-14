@@ -21,6 +21,10 @@ a:hover {
     color: turquoise;
 }
 
+button:hover{
+    color: turquoise;
+}
+
 .pageLayout {
     display: flex;
     flex-direction: column;
