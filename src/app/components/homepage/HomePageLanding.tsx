@@ -1,7 +1,7 @@
 import Image from "next/image";
-import santafe1 from "@/app/resources/spc/2.jpg"
-import santafe2 from "@/app/resources/spc/8142867157_fa4052ac8a_b.jpg"
-import santafe3 from "@/app/resources/spc/TaosPueblo01.jpg"
+import santafe1 from "@/app/resources/santafe1.jpg"
+import santafe2 from "@/app/resources/santafe2.jpg"
+import santafe3 from "@/app/resources/santafe3.jpg"
 import SPC from "@/app/resources/spc_logo_gray.png";
 import {HomePageLink} from "@/app/components/homepage/HomePageLink";
 import React from "react";
@@ -23,11 +23,11 @@ export function HomePageLanding() {
                     </div>
                 </div>
 
-                <div className={"grid border-4 place-content-center"}>
-                    <Image src={santafe1} alt={"an image inspired by SantaFe"}></Image>
+                <div className={"grid container"}>
+                    <Image className={" border-4 object-fill"} src={santafe1} alt={"an image inspired by SantaFe"}></Image>
                 </div>
-                <div className={"grid border-4 place-content-center"}>
-                    <Image src={santafe2} alt={"an image inspired by SantaFe"}></Image>
+                <div className={"grid container "}>
+                    <Image className={"border-4 object-fill"} src={santafe2} alt={"an image inspired by SantaFe"}></Image>
                 </div>
                 <div className = {"flex-col md:flex-row flex"}>
                     <div className = {"my-5 text-4xl font-bold mr-5  basis-2/12"}>
@@ -81,8 +81,8 @@ export function HomePageLanding() {
                         </h1>
                     </div>
                 </div>
-                <div className={"grid border-4 place-content-center resize"}>
-                    <Image src={santafe3} alt={"an image inspired by SantaFe"}></Image>
+                <div className={"grid container"}>
+                    <Image className={"border-4 object-fill"} src={santafe3} alt={"an image inspired by SantaFe"}></Image>
                 </div>
 
                 <div className={"collapse md:invisible"}/>

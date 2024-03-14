@@ -1,12 +1,15 @@
 
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import wpispc from "@/app/resources/SPC-WPI-Below.png";
 
 
 export function Footer() {
 
     return (
-        <div className={"grid mx-5 grid-cols-2 md:grid-cols-4 xl:justify-items-center mb-20 border-2"}>
+        <div className={"border-2 mb-20 flex flex-col"}>
+        <div className={"flex flex-row grid mx-5 grid-cols-2 md:grid-cols-4 xl:justify-items-center"}>
             <div className = {"text-white flex-col my-5"}>
                 <h1 className={"font-bold mb-5 text-xl"}>Where we are</h1>
                 <p className = {""}>
@@ -29,6 +32,10 @@ export function Footer() {
                 <h1 className = {"font-bold mb-5 text-xl"}>WPI</h1>
                 <p className = {"wpi"}><Link href={"https://www.wpi.edu/"} target={"_blank"}>WPI</Link></p>
                 <p className = {"wpiGlobal"}><Link href={"https://www.wpi.edu/project-based-learning/project-based-education/global-project-program"} target={"_blank"}>WPI Global</Link></p>
+            </div>
+        </div>
+            <div className={"flex flex-row"}>
+                <Image className={"place-content-center object-fill"} src={wpispc} alt={"an image inspired by SantaFe"}></Image>
             </div>
         </div>
     )
