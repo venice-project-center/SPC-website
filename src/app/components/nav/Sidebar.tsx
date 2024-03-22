@@ -22,9 +22,6 @@ export function Sidebar() {
                         <Link onClick={menuToggle} href={"/program"} className={""}>Program</Link>
                     </div>
                     <div className={"my-7"}>
-                        <Link onClick={menuToggle} href={"/publications"} className={""}>Publications</Link>
-                    </div>
-                    <div className={"my-7"}>
                         <Link onClick={menuToggle} href={"/projects"} className={""}>Student Projects</Link>
                     </div>
                 </div>
