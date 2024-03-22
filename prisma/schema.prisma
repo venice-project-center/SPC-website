@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
@@ -28,14 +28,14 @@ model Dataurl {
   url       String
   text      String
   type      DATAURL_TYPE
-  Project   Project      @relation(fields: [projectId], references: [id])
+  Project   Project      @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model IqpTeam {
   id        Int         @id @unique @default(autoincrement())
   team      IqpEntity[]
   projectId String      @unique
-  project   Project     @relation(fields: [projectId], references: [id])
+  project   Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model IqpEntity {
@@ -43,7 +43,7 @@ model IqpEntity {
   name   String
   teamId Int
   type   IPQ_ENTITY_TYPE
-  team   IqpTeam         @relation(fields: [teamId], references: [id])
+  team   IqpTeam         @relation(fields: [teamId], references: [id], onDelete: Cascade)
 }
 
 model validEmails {
@@ -101,7 +101,7 @@ model tagsOnProject {
   name       String
   tag        Tag      @relation(fields: [name], references: [name], onDelete: Cascade)
   assignedAt DateTime @default(now())
-  Project    Project  @relation(fields: [projectId], references: [id])
+  Project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   @@id([projectId, name])
 }

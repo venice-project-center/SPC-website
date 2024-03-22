@@ -164,48 +164,23 @@ export async function POST(request: Request) {
     return NextResponse.json("not authenticated",{status:401})
 }
 
-export async function DELETE(request: NextRequest) {
-    const session = await getServerSession(authOptions);
-    if (session != null) {
+export async function DELETE(request:NextRequest) {
+    const session = await getServerSession(authOptions)
+    if(session != null) {
         let project: FullProject = {} as FullProject;
         try {
             project = await request.json();
         } catch (error) {
-            return NextResponse.json("bad body", { status: 400 });
+            return NextResponse.json("bad boddy",{status:400})
         }
-        try {
-            // First, delete associated IqpTeam record if it exists
-            const existingProject = await prisma.project.findUnique({
-                where: {
-                    id: project.id,
-                },
-                include: {
-                    iqp_team: true,
-                },
-            });
-
-            if (existingProject?.iqp_team) {
-                await prisma.iqpTeam.delete({
-                    where: {
-                        id: existingProject.iqp_team.id,
-                    },
-                });
+        await prisma.project.delete({
+            where: {
+                id: project.id
             }
-
-            // Then, delete the Project record
-            await prisma.project.delete({
-                where: {
-                    id: project.id,
-                },
-            });
-
-            return NextResponse.json("successfully deleted", { status: 200 });
-        } catch (error) {
-            console.error("Error deleting project:", error);
-            return NextResponse.json("delete failed", { status: 500 });
-        }
+        })
+        return NextResponse.json("successfully deleted",{status:200})
     }
-    return NextResponse.json("not authenticated", { status: 401 });
+    return NextResponse.json("not authenticated",{status:401})
 }
 
 //TODO rework and simplify
